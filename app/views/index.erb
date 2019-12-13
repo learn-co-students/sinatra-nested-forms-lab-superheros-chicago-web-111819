@@ -1,0 +1,27 @@
+<h1>Create a Team and Heroes!</h1>
+
+<form action="/teams" method="POST">
+    <label for="team_name">Team name: </label>
+    <input id="team_name" name="team[name]" type="text"><br>
+
+    <label for="team_motto">Team Motto: </label>
+    <input id="team_motto" name="team[motto]" type="text"><br>
+
+    <% for i in 1..3 do %>
+
+        <h2>Hero <%= i %></h2>
+        <label for="member<%= i %>_name" style="margin-right: 1.5%;">Hero's Name: </label>
+        <input id="member<%= i %>_name" name="team[members][][name]" type="text"><br>
+
+        <span style="padding-top: 3px; padding-bottom: 3px; display: block;">
+            <label for="member<%= i %>_power" style="margin-right: 1.4%;">Hero's Power: </label>
+            <input id="member<%= i %>_power" name="team[members][][power]" type="text"><br>
+        </span>
+
+        <label for="member<%= i %>_bio">Hero's Biography: </label>
+        <input id="member<%= i %>_bio" name="team[members][][bio]" type="text"><br>
+
+    <% end %>
+
+    <input type="submit" value="submit" style="margin: 2%" />
+  </form>
